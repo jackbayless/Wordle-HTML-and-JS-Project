@@ -1,0 +1,53 @@
+.game_container {
+    display: flex;
+    justify-content: center;
+}
+
+.tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    border: 1px dimgrey solid;
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.clear-floats {
+    clear: left
+}
+
+#top_header{
+    display: flex;
+    justify-content: center;
+
+}
+
+.key_input{
+    display: flex;
+    width: 25px;
+    height: 40px;
+    margin: 3px;
+    float: left;
+    border :1px dimgrey solid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.large_key_input {
+    display: flex;
+    width: 60px;
+    height: 40px;
+    margin: 3px;
+    float: left;
+    border :1px dimgrey solid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
