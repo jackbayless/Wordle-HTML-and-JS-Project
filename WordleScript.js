@@ -1,9 +1,6 @@
 
 console.log("Page Loaded")
 
-let guess_input = []
-let guess_index = 0;
-let guess_number = 0;
 let row = 0;
 let col = 0;
 let length = 5;

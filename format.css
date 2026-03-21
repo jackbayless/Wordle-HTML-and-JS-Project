@@ -38,6 +38,18 @@ woo
     margin-top: 20px;
 }
 
+#apply_options_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:70px;
+    height:25px;
+    background-color: green;
+    text-decoration-color: white;
+
+
+}
+
 .key_input{
     display: flex;
     width: 25px;
