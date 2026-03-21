@@ -88,6 +88,19 @@ function draw_tiles() {
     return tiles;
 }
 
+// placeholder before i set up server and get words through there -- ..
+function set_word() {
+    let len = parseInt(global_length);
+
+    if (len === 3) word = "CAT";
+    else if (len === 4) word = "FART";
+    else if (len === 5) word = "BELLA";
+    else if (len === 6) word = "CLEARY";
+    else if (len === 7) word = "ICEKING";
+    else if (len === 8) word = "THINKPAD";
+
+}
+
 
 
 
@@ -107,6 +120,7 @@ addEventListener('keydown', function(e) {
     }
 
     else if (e.key === "Enter") {
+        e.preventDefault();
         let score = 0;
         console.log("Enter Clicked");
         col = 0;
@@ -157,18 +171,17 @@ addEventListener('keydown', function(e) {
 document.getElementById("apply_options_button").addEventListener('click', function(e) {
     console.log("apply clicked")
 
-    let len_input = document.getElementById("length").value;
-    global_length = len_input;
-    console.log("Length set to:", len_input);
+    global_length = document.getElementById("length").value;
+    console.log("Length set to:", global_length);
 
-    let diff_input = document.getElementById("difficulty").value;
-    global_difficulty = diff_input;
-    console.log("Difficulty set to:", diff_input);
+    global_difficulty = document.getElementById("difficulty").value;
+    console.log("Difficulty set to:", global_difficulty);
 
+    set_word();
+    console.log("Word has been set: ", word)
 
-
-    document.getElementById("tiles").innerHTML = "";
-    document.getElementById("tiles").appendChild(draw_tiles());
+    document.getElementById("tiles_container").innerHTML = "";
+    document.getElementById("tiles_container").appendChild(draw_tiles());
 
 
 })
