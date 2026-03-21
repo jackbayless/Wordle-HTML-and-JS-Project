@@ -30,6 +30,14 @@ woo
 
 }
 
+#game_controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
 .key_input{
     display: flex;
     width: 25px;

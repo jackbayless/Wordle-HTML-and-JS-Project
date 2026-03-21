@@ -9,7 +9,7 @@ let col = 0;
 let length = 5;
 let difficulty = 6;
 
-let word = "BELLA"
+let word = "COLIN"
 
 function setTile(row, col, letter) {
     console.log("Tile " + row + " " + col + " set to " + letter);
