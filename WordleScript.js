@@ -1,13 +1,10 @@
 
 console.log("Page Loaded")
 
-let guess_input = []
-let guess_index = 0;
-let guess_number = 0;
 let row = 0;
 let col = 0;
-let length = 5;
-let difficulty = 6;
+let global_length = 5;
+let global_difficulty = 6;
 
 let word = "BELLA"
 
@@ -30,7 +27,7 @@ function setTile(row, col, letter) {
 }
 
 function increment_col () {
-    if (col < length - 1) {
+    if (col < global_length - 1) {
         col++;
     }
 }
@@ -65,9 +62,34 @@ function update_tile_and_key(id, color) {
     document.getElementById(key_id).style.backgroundColor = color
 }
 
-function set_word () {
+function draw_tiles() {
 
+    let tiles = document.createElement("div");
+    tiles.id = "tiles";
+
+    for (let i = 0; i < global_difficulty; i++) {
+
+        const container = document.createElement("div");
+        container.classList.add("game_container");
+        document.body.appendChild(container);
+
+        for (let j = 0; j < global_length; j++) {
+
+            const new_tile = document.createElement("div");
+            new_tile.id = "" + i + "" + j;
+            new_tile.classList.add("tile");
+            container.appendChild(new_tile);
+
+        }
+
+        tiles.appendChild(container);
+
+    }
+    return tiles;
 }
+
+
+
 
 addEventListener('keydown', function(e) {
 
@@ -89,7 +111,7 @@ addEventListener('keydown', function(e) {
         console.log("Enter Clicked");
         col = 0;
 
-        for (col; col < length; col++) {
+        for (col; col < global_length; col++) {
             let id = "" + row + "" + col;
             let letter = document.getElementById(id).textContent;
 
@@ -100,7 +122,7 @@ addEventListener('keydown', function(e) {
             else if (guess_value === 1) update_tile_and_key(id, "yellow");
             else update_tile_and_key(id, "grey");
 
-            if (score === 2 * length) {
+            if (score === 2 * global_length) {
                 document.getElementById("result").textContent = "YOU WIN!!!!"
                 return;
             }
@@ -110,7 +132,7 @@ addEventListener('keydown', function(e) {
         row++;
         col = 0;
 
-        if (row >= difficulty - 1) {
+        if (row >= global_difficulty - 1) {
             document.getElementById("result").textContent = "YOU LOSE :("
         }
         return;
@@ -128,6 +150,25 @@ addEventListener('keydown', function(e) {
 // woo
 
 
+
+
+})
+
+document.getElementById("apply_options_button").addEventListener('click', function(e) {
+    console.log("apply clicked")
+
+    let len_input = document.getElementById("length").value;
+    global_length = len_input;
+    console.log("Length set to:", len_input);
+
+    let diff_input = document.getElementById("difficulty").value;
+    global_difficulty = diff_input;
+    console.log("Difficulty set to:", diff_input);
+
+
+
+    document.getElementById("tiles").innerHTML = "";
+    document.getElementById("tiles").appendChild(draw_tiles());
 
 
 })
