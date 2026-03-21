@@ -50,6 +50,14 @@ woo
 
 }
 
+.test_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:25px;
+    width: 100px;
+}
+
 .key_input{
     display: flex;
     width: 25px;

@@ -62,13 +62,31 @@ function update_tile_and_key(id, color) {
     document.getElementById(key_id).style.backgroundColor = color
 }
 
-function set_word () {
+function draw_keyboard (len, diff) {
+
+    let test_div = document.createElement("div");
+    test_div.style.backgroundColor = "green";
+    test_div.textContent = len;
+    test_div.classList.add("test_div");
+
+    let test_div2 = document.createElement("div");
+    test_div2.style.backgroundColor = "red";
+    test_div2.textContent = diff;
+    test_div2.classList.add("test_div");
+
+
+    let test_div3 = document.createElement("div");
+
+    test_div3.appendChild(test_div);
+    test_div3.appendChild(test_div2);
+    return test_div3;
+
 
 }
 
 addEventListener('keydown', function(e) {
 
-    var letter = e.key.toUpperCase()
+    let letter = e.key.toUpperCase()
 
     if (isLetter(letter)) {
         setTile(row, col, letter);
@@ -102,7 +120,6 @@ addEventListener('keydown', function(e) {
                 return;
             }
 
-
         }
         row++;
         col = 0;
@@ -113,18 +130,20 @@ addEventListener('keydown', function(e) {
         return;
 
 
-
-
-
     }
-
-
 
     console.log("Row: " + row + " col: " + col);
 
-// woo
+})
 
-
+document.getElementById("apply_options_button").addEventListener('click', function(e) {
+    console.log("clicked")
+    let len_input = document.getElementById("length").value;
+    let diff_input = document.getElementById("difficulty").value;
+    console.log(len_input);
+    console.log(diff_input);
+    document.getElementById("keyboard").innerHTML = "";
+    document.getElementById("keyboard").appendChild(draw_keyboard(len_input, diff_input));
 
 
 })
