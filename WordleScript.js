@@ -5,8 +5,9 @@ let row = 0;
 let col = 0;
 let global_length = 5;
 let global_difficulty = 6;
-
 let word = "BELLA"
+
+let EC2_URL = "https://www.jackbayless.club";
 
 function setTile(row, col, letter) {
     console.log("Tile " + row + " " + col + " set to " + letter);
@@ -89,7 +90,7 @@ function draw_tiles() {
 }
 
 // placeholder before i set up server and get words through there -- ..
-function set_word() {
+async function set_word() {
     let len = parseInt(global_length);
 
     if (len === 3) word = "CAT";
@@ -98,6 +99,13 @@ function set_word() {
     else if (len === 6) word = "CLEARY";
     else if (len === 7) word = "ICEKING";
     else if (len === 8) word = "THINKPAD";
+
+    let url = EC2_URL + "/wordle/getword?length=" + global_length;
+
+    let r = await fetch(url);
+    let data = await r.json();
+    console.log(data.word)
+    word = data.word;
 
 }
 
@@ -183,5 +191,7 @@ document.getElementById("apply_options_button").addEventListener('click', functi
     document.getElementById("tiles_container").innerHTML = "";
     document.getElementById("tiles_container").appendChild(draw_tiles());
 
+    row = 0;
+    col = 0;
 
 })
