@@ -30,6 +30,34 @@ wo
 
 }
 
+#game_controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#apply_options_button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:70px;
+    height:25px;
+    background-color: green;
+    text-decoration-color: white;
+
+
+}
+
+.test_div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:25px;
+    width: 100px;
+}
+
 .key_input{
     display: flex;
     width: 25px;
