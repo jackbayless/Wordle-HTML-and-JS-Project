@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>JB's Wordle</title>
-    <link rel="stylesheet" href="format.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename="wordle/format.css") }}">
 </head>
 
 <body>
@@ -148,7 +148,7 @@
 
 
 
-<script src="WordleScript.js"></script>
+<script src="{{ url_for('static', filename="wordle/WordleScript.js") }}"></script>
 </body>
 
 <!-- wooo -->
